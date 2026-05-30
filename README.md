@@ -57,7 +57,7 @@ Linux/macOS installation steps are identical to the original upstream repository
 ### method 1: using wget (Recommended)
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/terryso/claude-auto-resume/refs/heads/develop/claude-auto-resume.sh  | sudo tee /usr/local/bin/claude-auto-resume >/dev/null && sudo chmod +x /usr/local/bin/claude-auto-resume
+wget -qO- https://raw.githubusercontent.com/MedDash99/claude-auto-resume/refs/heads/develop/claude-auto-resume.sh  | sudo tee /usr/local/bin/claude-auto-resume >/dev/null && sudo chmod +x /usr/local/bin/claude-auto-resume
 ```
 
 ### method 2: using Makefile

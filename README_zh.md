@@ -49,7 +49,7 @@ Linux/macOS 的安装步骤与原仓库一致，以下内容保持不变。
 ### 方法 1：使用 wget（推荐）
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/terryso/claude-auto-resume/refs/heads/develop/claude-auto-resume.sh  | sudo tee /usr/local/bin/claude-auto-resume >/dev/null && sudo chmod +x /usr/local/bin/claude-auto-resume
+wget -qO- https://raw.githubusercontent.com/MedDash99/claude-auto-resume/refs/heads/develop/claude-auto-resume.sh  | sudo tee /usr/local/bin/claude-auto-resume >/dev/null && sudo chmod +x /usr/local/bin/claude-auto-resume
 ```
 
 ### 方法 2：使用 Makefile
