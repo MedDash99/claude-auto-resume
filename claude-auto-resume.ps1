@@ -398,7 +398,7 @@ try {
   }
 
   $LIMIT_MSG = ''
-  $limitPattern = '(?i)(usage limit|limit reached|hit your limit).*resets'
+  $limitPattern = '(?i)(usage limit|limit.*resets)'
   $resetPattern = '(?i)resets\s+\d+(am|pm)'
   if ($CLAUDE_OUTPUT -match $limitPattern -or $CLAUDE_OUTPUT -match $resetPattern) {
     $LIMIT_MSG = $CLAUDE_OUTPUT

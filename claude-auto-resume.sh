@@ -179,9 +179,8 @@ parse_limit_message() {
         return
     fi
 
-    # Check for new format: X-hour limit reached ∙ resets Xam/pm or X:XXam/pm
-    # Also handles: You've hit your limit · resets 2am (Europe/Paris)
-    if echo "$claude_output" | grep -q -E "(limit reached|hit your limit).*resets"; then
+    # Check for new format variations containing limit and resets
+    if echo "$claude_output" | grep -q -E "limit.*resets"; then
         local reset_time reset_hour reset_minute reset_period reset_hour_24
         local now_timestamp today_reset output_tz=""
 
@@ -578,7 +577,7 @@ fi
 # Old format: Claude AI usage limit reached|<timestamp>
 # New format: 5-hour limit reached ∙ resets 3am
 # Newest format: You've hit your limit · resets 2am (Europe/Paris)
-LIMIT_MSG=$(echo "$CLAUDE_OUTPUT" | grep -E "(Claude AI usage limit reached|limit reached.*resets|hit your limit.*resets)")
+LIMIT_MSG=$(echo "$CLAUDE_OUTPUT" | grep -E "(Claude AI usage limit reached|limit.*resets)")
 
 # Test mode: simulate usage limit
 if [ "$TEST_MODE" = true ]; then

@@ -118,10 +118,11 @@ test_message_detection() {
         "5-hour limit reached ∙ resets 3am"
         "5-hour limit reached ∙ resets 12:30am"
         "Some text 5-hour limit reached ∙ resets 11:45pm more text"
+        "You've hit your session limit · resets 4am (Asia/Jerusalem)"
     )
     
     for msg in "${old_messages[@]}"; do
-        if echo "$msg" | grep -qE "(Claude AI usage limit reached|limit reached.*resets)"; then
+        if echo "$msg" | grep -qE "(Claude AI usage limit reached|limit.*resets)"; then
             echo -e "  ${GREEN}PASS${NC}: Detected old format message"
             TESTS_PASSED=$((TESTS_PASSED + 1))
         else
@@ -131,7 +132,7 @@ test_message_detection() {
     done
     
     for msg in "${new_messages[@]}"; do
-        if echo "$msg" | grep -qE "(Claude AI usage limit reached|limit reached.*resets)"; then
+        if echo "$msg" | grep -qE "(Claude AI usage limit reached|limit.*resets)"; then
             echo -e "  ${GREEN}PASS${NC}: Detected new format message"
             TESTS_PASSED=$((TESTS_PASSED + 1))
         else
